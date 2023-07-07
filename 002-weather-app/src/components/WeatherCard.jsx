@@ -35,7 +35,7 @@ export default function WeatherCard() {
         <div className="d-flex">
           <Grid.Container gap={2} justify="flex-start">
             {top6Cities.map((city, index) => (
-              <Grid xs={6} sm={3} key={index}>
+              <Grid xs={6} key={index}>
                 <Card isPressable onClick={() => {
                   setCityTerm(city.city);
                   setTop6CitiesDialog(false);
