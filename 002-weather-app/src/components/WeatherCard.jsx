@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Card, Grid, Text, Link } from "@nextui-org/react";
-
-import Input from "./Input";
+import { useEffect, useState } from "react";
+import { Card, Text, Modal, Button, Grid, Row } from "@nextui-org/react";
+import useTop6Cities from "../composables/use-top-6-cities";
+import SearchInput from "./SearchInput";
 import WeatherResultsCard from "./WeatherResultsCard";
+
 export default function WeatherCard() {
   const [cityTerm, setCityTerm] = useState("");
 
@@ -10,49 +11,55 @@ export default function WeatherCard() {
     setCityTerm(e.target.value);
   };
 
+  const top6Cities = useTop6Cities();
+  const [top6CitiesDialog, setTop6CitiesDialog] = useState(false);
+  const toggleTop6CitiesDialog = () => setTop6CitiesDialog(!top6CitiesDialog);
+
   return (
     <div className="w-75 h-75">
       <Card css={{ p: "$6", mw: "100%", overflow: "hidden" }}>
-      {/* <Input
-        className="w-100 p-2 rounded-0 border-0 bg-white"
-        onInput={updateCityTerm}
-      />
-      {cityTerm}
-      <WeatherResultsCard /> */}
-      <Card.Header>
-        <img
-          alt="nextui logo"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          width="34px"
-          height="34px"
-        />
-        <Grid.Container css={{ pl: "$6" }}>
-          <Grid xs={12}>
-            <Text h4 css={{ lineHeight: "$xs" }}>
-              Next UI
-            </Text>
-          </Grid>
-          <Grid xs={12}>
-            <Text css={{ color: "$accents8" }}>nextui.org</Text>
-          </Grid>
-        </Grid.Container>
-      </Card.Header>
-      <Card.Body css={{ py: "$2" }}>
-        <Text>
-          Make beautiful websites regardless of your design experience.
-        </Text>
-      </Card.Body>
-      <Card.Footer>
-        <Link
-          icon
-          color="primary"
-          target="_blank"
-          href="https://github.com/nextui-org/nextui"
-        >
-          Visit source code on GitHub.
-        </Link>
-      </Card.Footer>
-    </Card>
+        <div className="mb-2">
+          <Button color="gradient" auto ghost size="sm" onPress={toggleTop6CitiesDialog}>
+            Top 6 Cities
+          </Button>
+        </div>
+        <SearchInput onInput={updateCityTerm} />
+        <WeatherResultsCard cityTerm={cityTerm} />
+      </Card>
+
+      <Modal
+        aria-labelledby="modal-title"
+        open={top6CitiesDialog}
+        onClose={toggleTop6CitiesDialog}
+      >
+        <div className="d-flex">
+          <Grid.Container gap={2} justify="flex-start">
+            {top6Cities.map((city, index) => (
+              <Grid xs={6} sm={3} key={index}>
+                <Card isPressable onClick={() => {
+                  setCityTerm(city.city);
+                  setTop6CitiesDialog(false);
+                }}>
+                  <Card.Body css={{ p: 0 }}>
+                    <Card.Image
+                      src={city.img}
+                      objectFit="cover"
+                      width="100%"
+                      height={140}
+                      alt={city.city}
+                    />
+                  </Card.Body>
+                  <Card.Footer css={{ justifyItems: "flex-start" }}>
+                    <Row wrap="wrap" align="center">
+                      <Text b>{city.city}</Text>
+                    </Row>
+                  </Card.Footer>
+                </Card>
+              </Grid>
+            ))}
+          </Grid.Container>
+        </div>
+      </Modal>
     </div>
   );
 }

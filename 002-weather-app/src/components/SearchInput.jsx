@@ -1,18 +1,17 @@
-export default function Input({
+import { Input } from "@nextui-org/react";
+
+export default function SearchInput({
   placeholder = "Enter City Name",
   ariaLabel = "Enter City Name",
-  type = "text",
-  className = "form-control",
   onInput = () => {},
 }) {
   // reusable input component
   return (
-    <input
-      className={className}
-      type={type}
+    <Input
       placeholder={placeholder}
       aria-label={ariaLabel}
       onInput={onInput}
+      clearable
     />
   );
 }
