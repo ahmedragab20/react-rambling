@@ -35,14 +35,14 @@ export default function Modal({ toggleModal, content }) {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-slate-700">
+                <h3 className="text-2xl font-bold text-slate-700 truncate">
                   {content.name || "Movie Name"}
                 </h3>
                 <p className="text-sm mt-2 text-slate-700 px-1 line-clamp-3">
                   {content.overview}
                 </p>
                 <div className="mt-4">
-                  <button disabled className="px-3 py-2 disabled:bg-slate-400 disabled:cursor-not-allowed rounded-lg bg-slate-800 text-white shadow-2xl hover:shadow-none hover:bg-slate-600">
+                  <button disabled className="px-3 py-2 disabled:bg-slate-400 disabled:cursor-not-allowed rounded-xl bg-slate-800 text-white shadow-2xl hover:shadow-none hover:bg-slate-600">
                     <span className="pr-3">❤️</span>
                     Add to favourite (soon maybe 🤷🏻)
                   </button>
