@@ -54,7 +54,7 @@ function App() {
           <div className="flex justify-center items-center">
             <input
               type="search"
-              className="w-full p-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent"
+              className="w-full p-2 border border-slate-300 rounded-xl bg-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent"
               placeholder="Type to search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
