@@ -8,6 +8,7 @@ function App() {
   const url = new URL("https://api.themoviedb.org/3/search/multi");
   const api_key = "96118d622d2c41ec061099bbc178523d";
   const img_base_url = "https://image.tmdb.org/t/p/w500";
+  
   url.search = new URLSearchParams({
     api_key,
     query: searchQuery,
