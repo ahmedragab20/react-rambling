@@ -46,23 +46,23 @@ function App() {
   }, [searchQuery]);
   return (
     <>
-      <div className="px-2 py-10 bg-slate-100 h-[100svh] overflow-auto">
+      <div className="px-2  py-10 bg-slate-100 h-[100svh] overflow-auto">
         <div className="flex justify-center items-center">
           <h2 className=" text-4xl font-extrabold text-slate-700">Search</h2>
         </div>
-        <div className="my-5">
+        <div className="my-5 w-11/12 mx-auto">
           <div className="flex justify-center items-center">
             <input
               type="search"
-              className="w-11/12 p-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent"
+              className="w-full p-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent"
               placeholder="Type to search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
         </div>
-        {/* movies */}
-        <div>
+        {/* Results */}
+        <div className="w-11/12 mx-auto">
           <div className="flex justify-center items-center flex-wrap">
             {loading && (
               <div className="flex justify-center items-center">
@@ -80,11 +80,11 @@ function App() {
                       key={movie.id}
                       className="bg-slate-200 rounded-xl shadow-md max-w-[120px] m-2"
                     >
-                      <div className="flex justify-center items-center">
+                      <div className="flex w-[120px] h-[180px] justify-center items-center">
                         <img
                           src={img_base_url + movie.poster_path}
                           alt={movie.name}
-                          className="rounded-xl shadow-lg"
+                          className="rounded-xl shadow-lg w-full h-full object-cover"
                         />
                       </div>
                       <div className="p-2 max-w-full">
