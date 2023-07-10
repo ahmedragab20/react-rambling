@@ -42,7 +42,7 @@ export default function Modal({ toggleModal, content }) {
                   {content.overview}
                 </p>
                 <div className="mt-4">
-                  <button disabled className="px-3 py-2 disabled:bg-slate-400 disabled:cursor-not-allowed rounded-xl bg-slate-800 text-white shadow-2xl hover:shadow-none hover:bg-slate-600">
+                  <button disabled className="px-3 py-2 disabled:bg-slate-400 disabled:cursor-not-allowed select-none rounded-xl bg-slate-800 text-white shadow-2xl hover:shadow-none hover:bg-slate-600">
                     <span className="pr-3">❤️</span>
                     Add to favourite (soon maybe 🤷🏻)
                   </button>
