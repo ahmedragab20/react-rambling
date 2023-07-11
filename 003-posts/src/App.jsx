@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Modal from "./components/Modal";
 
 function App() {
   //! The app named posts, but I will use movies api cuz this is the best one i found out there for what i want to do
 
   const [searchQuery, setSearchQuery] = useState("");
+  const searchInput = useRef(null);
+  useEffect(() => { 
+    searchInput.current.focus();
+  }, []);
+
   const url = new URL("https://api.themoviedb.org/3/search/multi");
   const api_key = "96118d622d2c41ec061099bbc178523d";
   const img_base_url = "https://image.tmdb.org/t/p/w500";
-  
+
   url.search = new URLSearchParams({
     api_key,
     query: searchQuery,
@@ -79,7 +84,8 @@ function App() {
               className="w-full p-2 border border-slate-300 rounded-xl bg-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent"
               placeholder="Type to search..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onInput={(e) => setSearchQuery(e.target.value)}
+              ref={searchInput}
             />
           </div>
         </div>
