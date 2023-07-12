@@ -84,7 +84,7 @@ function App() {
           <div className="flex justify-center items-center">
             <input
               type="search"
-              className="w-full p-2 border border-slate-300 rounded-xl bg-slate-200 focus:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent dark:focus:ring-slate-800 dark:focus:bg-slate-700 dark:bg-slate-600 dark:border-slate-700"
+              className="w-full p-2 border border-slate-300 rounded-xl bg-slate-200 focus:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent dark:focus:ring-slate-800 dark:focus:bg-slate-700 dark:bg-slate-800 dark:border-slate-700"
               placeholder="Type to search..."
               value={searchQuery}
               onInput={(e) => setSearchQuery(e.target.value)}
@@ -114,15 +114,6 @@ function App() {
             {/* no search query yet */}
             {!searchQuery.length && !movies.length && (
               <div className="flex justify-center items-center flex-col">
-                <div className="w-44 h-44 rounded-full overflow-hidden select-none pointer-events-none dark:bg-slate-950">
-                  {theme === "light" && (
-                    <img
-                      className="w-full h-full object-contain mix-blend-multiple dark:bg-slate-950"
-                      src="https://cdn.dribbble.com/userupload/6516616/file/original-9d21aa37c60b1789d0a075b2cd7c2672.png?compress=1&resize=752x564"
-                      alt=""
-                    />
-                  )}
-                </div>
                 <h3 className="text-md font-bold text-slate-700">
                   Search for something
                 </h3>
@@ -141,17 +132,17 @@ function App() {
                         onClick={() => {
                           handleModalContent(movie);
                         }}
-                        className="bg-slate-200 duration-300 hover:scale-105 cursor-pointer rounded-xl shadow-md max-w-[120px] m-2"
+                        className="select-none bg-slate-200 dark:bg-slate-900 duration-300 hover:scale-105 cursor-pointer rounded-xl shadow-md max-w-[120px] m-2"
                       >
                         <div className="flex w-[120px] h-[180px] justify-center items-center">
                           <img
                             src={img_base_url + movie.poster_path}
                             alt={movie.name}
-                            className="rounded-xl shadow-lg w-full h-full object-cover"
+                            className="rounded-xl shadow-lg dark:shadow-slate-950  w-full h-full object-cover"
                           />
                         </div>
                         <div className="p-2 max-w-full">
-                          <h3 className="text-xs max-w-full min-h-[30px] line-clamp-2 font-bold text-slate-700">
+                          <h3 className="text-xs max-w-full dark:text-slate-200 min-h-[30px] line-clamp-2 font-bold text-slate-700">
                             {movie.name || `Movie ${index + 1}`}
                           </h3>
                         </div>
