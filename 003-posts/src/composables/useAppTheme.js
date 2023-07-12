@@ -12,7 +12,6 @@ export default function useAppTheme() {
   };
 
   useEffect(() => {
-    console.log("useAppTheme useEffect", deviceTheme);
     setTheme(deviceTheme);
   }, [deviceTheme]);
 

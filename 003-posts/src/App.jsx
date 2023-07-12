@@ -7,10 +7,8 @@ function App() {
   const { theme } = useAppTheme();
   const [searchQuery, setSearchQuery] = useState("");
   const searchInput = useRef(null);
-useEffect(() => {
+  useEffect(() => {
     if (searchInput.current) searchInput.current.focus();
-
-    console.log("theme", theme);
   }, []);
 
   const url = new URL("https://api.themoviedb.org/3/search/multi");
