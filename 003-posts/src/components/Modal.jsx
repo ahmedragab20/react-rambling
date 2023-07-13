@@ -45,6 +45,7 @@ export default function Modal({ toggleModal, content }) {
                   <button disabled className="px-3 py-2 disabled:bg-slate-400 dark:disabled:bg-slate-900 disabled:cursor-not-allowed select-none rounded-xl bg-slate-800 dark:bg-slate-700 text-white shadow-2xl hover:shadow-none hover:bg-slate-600 dark:hover:bg-slate-500">
                     <span className="pr-3">❤️</span>
                     Add to favourite (soon maybe 🤷🏻)
+                    {/* TODO:: change it to send the user to the details page */}
                   </button>
                 </div>
               </div>
