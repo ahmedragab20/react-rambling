@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active.nav-link {
+ @apply bg-stone-100 dark:bg-stone-800 shadow-xl text-stone-500 dark:text-stone-400;
+}
