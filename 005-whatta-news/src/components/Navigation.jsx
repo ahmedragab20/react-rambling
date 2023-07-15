@@ -5,7 +5,7 @@ import { useAppContext } from "../contexts/AppContext";
 export function Navigation() {
   const { userCountry } = useAppContext();
   return (
-    <div className="fixed z-50 h-12 max-w-full shadow-xl sm:max-w-sm -translate-x-1/2 rounded-full bottom-4 left-1/2 dark:border dark:border-stone-800 backdrop-blur-md">
+    <div className="fixed z-50 h-12 max-w-full shadow-xl sm:max-w-sm -translate-x-1/2 rounded-full bottom-4 left-1/2 dark:border dark:border-stone-800 backdrop-blur-xl">
       {/* TODO:
         1- Home
         2- Search
@@ -37,7 +37,6 @@ export function Navigation() {
               className="w-7 h-7 rounded-full"
             />
           ) : (
-            // div spinner
             <div className="w-7 h-7 rounded-full bg-stone-500">...</div>
           )}
         </div>
