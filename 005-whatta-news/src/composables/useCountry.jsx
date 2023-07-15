@@ -36,7 +36,7 @@ export default function useCountry() {
       const res = await get(
         `https://restcountries.com/v3.1/alpha/${countryCode}`
       );
-      
+
       const { flags } = res.data[0];
       setUserCountry({
         ...details,

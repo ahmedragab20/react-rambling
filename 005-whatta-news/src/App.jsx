@@ -11,6 +11,7 @@ function App() {
         <main>
           <Outlet />
         </main>
+        
         <Navigation />
       </AppContext>
     </div>

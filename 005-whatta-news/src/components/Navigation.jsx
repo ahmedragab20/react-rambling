@@ -28,16 +28,17 @@ export function Navigation() {
         >
           <FaMagnifyingGlass className="text-xl" />
         </NavLink>
-        <div
-          className="w-9 h-9 hover:scale-110 duration-150 cursor-pointer text-stone-500 flex justify-center items-center rounded-full"
-        >
-          {userCountry?.flags && (
+        <div className="w-9 h-9 hover:scale-110 duration-150 cursor-pointer text-stone-500 flex justify-center items-center rounded-full">
+          {userCountry?.flags ? (
             <img
               tabIndex="0"
               src={userCountry.flags.svg}
               alt={userCountry.flags.alt}
               className="w-7 h-7 rounded-full"
             />
+          ) : (
+            // div spinner
+            <div className="w-7 h-7 rounded-full bg-stone-500">...</div>
           )}
         </div>
       </div>
