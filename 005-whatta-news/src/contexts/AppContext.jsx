@@ -4,8 +4,8 @@ import useCountry from "../composables/useCountry";
 const context = createContext();
 
 export const AppContext = ({ children }) => {
-  const {userCountry} = useCountry();
-  
+  const { userCountry } = useCountry();
+
   return (
     <context.Provider
       value={{
