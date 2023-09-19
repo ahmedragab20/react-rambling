@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 import useCountry from "../composables/useCountry";
 
 const context = createContext();
 
-export const AppContext = ({ children }) => {
+export const AppContext = ({ children }) => { // provider
   const { userCountry } = useCountry();
 
   return (

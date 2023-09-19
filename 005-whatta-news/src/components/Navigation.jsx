@@ -4,6 +4,7 @@ import { useAppContext } from "../contexts/AppContext";
 
 export function Navigation() {
   const { userCountry } = useAppContext();
+  console.log(useAppContext());
   return (
     <div className="fixed z-50 h-12 max-w-full shadow-xl sm:max-w-sm -translate-x-1/2 rounded-full bottom-4 left-1/2 dark:border dark:border-stone-800 backdrop-blur-xl">
       {/* TODO:
